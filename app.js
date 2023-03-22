@@ -1,5 +1,5 @@
 function toggleMobileMenu() {
-  var e = document.getElementById("m-menu-button"),
+  let e = document.getElementById("m-menu-button"),
     o = document.getElementById("m-menu");
   e.children[1].classList.contains("block")
     ? (e.children[1].classList.replace("block", "hidden"),
@@ -25,7 +25,7 @@ function searchLibrary(e) {
         fetch("./data.json")
           .then((e) => e.json())
           .then((e) => {
-            var o,
+            let o,
               e = e.books,
               e =
                 (console.log(e),
@@ -37,7 +37,7 @@ function searchLibrary(e) {
                 ));
             0 < e.length
               ? (e.forEach((e) => {
-                  var o = document.createElement("a"),
+                  let o = document.createElement("a"),
                     t =
                       ((o.href = "#"),
                       (o.className =
@@ -87,7 +87,7 @@ function searchLibrary(e) {
       : d.classList.add("hidden");
 }
 function loadBooks() {
-  var e = window.location.search;
+  let e = window.location.search;
   let o = new URLSearchParams(e).get("page");
   o = o ? Number(o) : 1;
   let c = document.getElementById("book-grid");
@@ -96,7 +96,7 @@ function loadBooks() {
       .then((e) => e.json())
       .then((e) => {
         e.books.slice(12 * (o - 1), 12 * o).forEach((e) => {
-          var o = document.createElement("div"),
+          let o = document.createElement("div"),
             t =
               ((o.className =
                 "w-full bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"),
@@ -134,12 +134,12 @@ function loadBooks() {
       });
 }
 function previousBooksPage() {
-  var e = window.location.search,
+  let e = window.location.search,
     e = new URLSearchParams(e).get("page");
   e && "2" == e ? window.location.replace("?page=1") : window.location.reload();
 }
 function nextBooksPage() {
-  var e = window.location.search,
+  let e = window.location.search,
     e = new URLSearchParams(e).get("page");
   e && "1" == e ? window.location.replace("?page=2") : window.location.reload();
 }
