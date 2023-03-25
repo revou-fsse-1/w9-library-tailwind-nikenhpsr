@@ -1,4 +1,4 @@
-name: Docker Image for Library Tailwind
+name: Docker Image CI
 
 on:
   push:
