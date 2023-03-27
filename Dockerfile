@@ -4,14 +4,17 @@ FROM ubuntu:20.04
 RUN apt-get -y update
 RUN apt-get -y install nginx
 
-FROM node:18.15.0
+FROM node:19.3.0-alpine3.17
+
 RUN mkdir /app
+
+COPY . /app
+
 WORKDIR /app
-ADD . .
-RUN npm
-RUN npm tailwind:build
-EXPOSE 3030
-CMD ["npm", "start"]
+
+RUN npm install
+
+EXPOSE 8080
 
 FROM node:alpine
 COPY . /src
